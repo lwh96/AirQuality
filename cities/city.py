@@ -19,7 +19,7 @@ city_names = [
     'Wanshouxigong'
 ]
 
-CSV_FILE_FORMAT = 'air/csv/PRSA_Data_{}_20130301-20170228.csv'
+CSV_FILE_FORMAT = 'city/csv/PRSA_Data_{}_20130301-20170228.csv'
 cities = {}
 for index in range(len(city_names)):
     cities[str(index + 1)] = City(id=index + 1,
