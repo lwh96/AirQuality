@@ -11,3 +11,8 @@ class CityViewSet(viewsets.ViewSet):
         serializer = CitySerializer(
             instance=cities.values(), many=True)
         return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        print(cities)
+        serializer = CitySerializer(instance=cities[pk], many=False)
+        return Response(serializer.data)
