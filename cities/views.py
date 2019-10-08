@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
 import pandas as pd
 
@@ -18,6 +19,12 @@ class CityViewSet(viewsets.ViewSet):
         print(cities)
         serializer = CitySerializer(instance=cities[pk], many=False)
         return Response(serializer.data)
+
+    @action(methods=['get'], detail=True)
+    def get_std_dev(self, request, pk=None):
+        serializer = CitySerializer(instance=cities[pk], many=False)
+        city = serializer.data
+        return Response(self.calc_std_dev(city['csvname']))
 
     # Util Functions
     def calc_std_dev(self, filename):
