@@ -14,28 +14,34 @@ Title: Beijing Multi-Site Air-Quality Data Data Set<br/>
 Url: https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data#<br/>
 Institution: University of California, Irvine, School of Information and Computer Sciences<br/>
 
-## How to Use
-To use: export the secret key found in the key.txt in git bash. e.g. export SECRET_KEY='...' <br/>
-To build the docker image: docker build -t airquality:latest --build-arg SECRET_KEY = $SECRET_KEY . <br/>
-To run the docker locally: docker run -p portnumber airquality:latest<br/>
+## Build
+Firstly you have to generate your own secret key and export it to an environment variable. 
+To build the docker image and run it locally: 
+```
+docker build -t airquality:latest --build-arg SECRET_KEY=$SECRET_KEY . 
+docker run -p 8000:8000 airquality:latest
+```
 
-## Deply on Heroku
-**Esnure that heroku is logged in<br/>
-To create heroku app: heroku create<br/>
-To push docker file to app: heroku container: push web --app {APP NAME GENERATED}<br/> 
-To open web app: heroku open --app {APP NAME GENERATED}<br/>
+## Deploy on Heroku
+**Ensure that heroku is logged in<br/>
+1. Create heroku app: `heroku create`
+2. Add secret key to config vars: `heroku config:set SECRET_KEY=$SECRET_KEY`
+3. Build and push the docker image to heroku app: `heroku container: push web --app {APP NAME GENERATED}`
+4. Deploy the pushed image: `heroku container:release web --app {APP NAME GENERATED}`
 
 
 ## Usage
 There are three apps in this project.
 ##### List
-To list all cities, add /cities/ at the end of url where a list of city will be presented in json format
+To list all cities: `GET /city`
 
 ##### Retrieve
-To retrieve one specific city, add/cities/<pk> at the end of url where one city will presented in json format
+To retrieve one specific city: `GET /city/<pk>` <br/>
+where pk is the primary key ranging from 1 to 12
 
 ##### get_std_dev action
-Add /cities/<pk>/get_std_dev at the end of url, the standard deviation of each air pollutant in the city will be presented in json format.
+To perform the compute action on specified city: `GET /city/<pk>/get_std_dev`<br/> 
+where pk is the primary key ranging from 1 to 12
 
 ## Technologies
 Python 3.7<br/>
@@ -43,3 +49,5 @@ Django 2.2.6<br/>
 Django Rest FrameWork 3.10.3<br/>
 pandas 0.25.1<br/>
 Gunicorn 19.9.0<br/>
+Docker<br/>
+Heroku<br/>
