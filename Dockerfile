@@ -8,4 +8,4 @@ WORKDIR /code
 COPY . /code/
 RUN pip install gunicorn django djangorestframework pandas
 
-CMD gunicorn -w 3 airquality.wsgi --bind 0.0.0.0:8000
+CMD gunicorn -w 3 airquality.wsgi --bind 0.0.0.0:$PORT
