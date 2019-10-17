@@ -24,22 +24,24 @@ docker run -p 8000:8000 airquality:latest
 
 ## Deploy on Heroku
 **Ensure that heroku is logged in<br/>
-1. Create heroku app: <code>heroku create</code>
-2. Add secret key to config vars: <code>heroku config:set SECRET_KEY=$SECRET_KEY</code> 
-3. Build and push the docker image to heroku app: <code>heroku container: push web --app {APP NAME GENERATED}</code>
-4. Deploy the pushed image: <code>heroku container:release web --app {APP NAME GENERATED}</code>
+1. Create heroku app: `heroku create`
+2. Add secret key to config vars: `heroku config:set SECRET_KEY=$SECRET_KEY`
+3. Build and push the docker image to heroku app: `heroku container: push web --app {APP NAME GENERATED}`
+4. Deploy the pushed image: `heroku container:release web --app {APP NAME GENERATED}`
 
 
 ## Usage
 There are three apps in this project.
 ##### List
-To list all cities, add /cities/ at the end of url where a list of city will be presented in json format
+To list all cities: `GET /city`
 
 ##### Retrieve
-To retrieve one specific city, add/cities/<pk> at the end of url where one city will presented in json format
+To retrieve one specific city: `GET /city/<pk>` <br/>
+where pk is the primary key ranging from 1 to 12
 
 ##### get_std_dev action
-Add /cities/<pk>/get_std_dev at the end of url, the standard deviation of each air pollutant in the city will be presented in json format.
+To perform the compute action on specified city: `GET /city/<pk>/get_std_dev`<br/> 
+where pk is the primary key ranging from 1 to 12
 
 ## Technologies
 Python 3.7<br/>
