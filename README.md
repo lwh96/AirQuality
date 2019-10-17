@@ -14,16 +14,20 @@ Title: Beijing Multi-Site Air-Quality Data Data Set<br/>
 Url: https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data#<br/>
 Institution: University of California, Irvine, School of Information and Computer Sciences<br/>
 
-## How to Use
-To use: export the secret key found in the key.txt in git bash. e.g. export SECRET_KEY='...' <br/>
-To build the docker image: docker build -t airquality:latest --build-arg SECRET_KEY = $SECRET_KEY . <br/>
-To run the docker locally: docker run -p portnumber airquality:latest<br/>
+## Build
+Firstly you have to generate your own secret key and export it to an environment variable. 
+To build the docker image and run it locally: 
+```
+docker build -t airquality:latest --build-arg SECRET_KEY=$SECRET_KEY . 
+docker run -p 8000:8000 airquality:latest
+```
 
-## Deply on Heroku
-**Esnure that heroku is logged in<br/>
-To create heroku app: heroku create<br/>
-To push docker file to app: heroku container: push web --app {APP NAME GENERATED}<br/> 
-To open web app: heroku open --app {APP NAME GENERATED}<br/>
+## Deploy on Heroku
+**Ensure that heroku is logged in<br/>
+1. Create heroku app: <code>heroku create</code>
+2. Add secret key to config vars: <code>heroku config:set SECRET_KEY=$SECRET_KEY</code> 
+3. Build and push the docker image to heroku app: <code>heroku container: push web --app {APP NAME GENERATED}</code>
+4. Deploy the pushed image: <code>heroku container:release web --app {APP NAME GENERATED}</code>
 
 
 ## Usage
@@ -43,3 +47,5 @@ Django 2.2.6<br/>
 Django Rest FrameWork 3.10.3<br/>
 pandas 0.25.1<br/>
 Gunicorn 19.9.0<br/>
+Docker<br/>
+Heroku<br/>
