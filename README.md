@@ -51,3 +51,84 @@ pandas 0.25.1<br/>
 Gunicorn 19.9.0<br/>
 Docker<br/>
 Heroku<br/>
+
+<table width="100%">
+    <tr><td colspan=5><b>Group Name:  PROJ - Project Information
+<b></th></td>
+    <tr>
+        <th>Status</th>
+        <th>Heading</th>
+        <th colspan=2 >SuggestedUnit/Type</th>
+        <th>Description</th>
+        <th>Exampple</th>
+    </tr>
+    <tr>
+        <td>*R</td>
+        <td>PROJ_ID</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">ID</td>
+        <td>Project identifier</td>
+        <td>121415</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PROJ_NAME</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>Project Title</td>
+        <td>ACME Gas Works Redevelopment</td>
+    </tr>
+    <tr>
+        <td>R</td>
+        <td>PROJ_LOC</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>Location of site</td>
+        <td>High Street, Anytown</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PROJ_CLNT</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>Client Nam</td>
+        <td>ACME Enterprises</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PROJ_CONT</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>Contractor Name</td>
+        <td>ACME Drilling Ltd</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PROJ_ENG</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>Project Engineer</td>
+        <td>ACME Consulting</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>PROJ_MEMO</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td>General project comments</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>FILE_SET</td>
+        <td style="text-align:center;"></td>
+        <td style="text-align:center;">X</td>
+        <td width="1">Associated file reference (e.g. project specification, site location drawings)</td>
+        <td>FS1</td>
+    </tr>
+</table>
+
+###### Group Notes
+* PROJ is required in all AGS4 files (Rule 13).
+* PROJ_ENG should contain the details of the consultant/designer for the project.
+
